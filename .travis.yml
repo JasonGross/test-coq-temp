@@ -1,0 +1,16 @@
+language: generic
+
+sudo: required
+
+matrix:
+  include:
+    - dist: trusty
+      env: COQ_VERSION="v8.5"   COQ_PACKAGE="coq"                            COQPRIME="coqprime"     PPA="ppa:jgross-h/coq-8.5-daily"
+
+before_install:
+  - if [ ! -z "$PPA" ]; then sudo add-apt-repository "$PPA" -y; fi
+  - sudo apt-get update -q
+  - sudo apt-get install ocaml -y
+  - sudo apt-get install $COQ_PACKAGE -y
+
+script: true
