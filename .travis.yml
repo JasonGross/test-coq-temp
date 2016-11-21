@@ -10,7 +10,7 @@ matrix:
 before_install:
   - if [ ! -z "$PPA" ]; then sudo add-apt-repository "$PPA" -y; fi
   - sudo apt-get update -q
-  - sudo apt-get install ocaml -y
+  #- sudo apt-get install ocaml -y
   - sudo apt-get install $COQ_PACKAGE -y
 
 script: true
